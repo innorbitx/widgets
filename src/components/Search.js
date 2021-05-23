@@ -25,11 +25,20 @@ const Search = () => {
 
   const renderedResults = results.map((result) => {
     return (
-      <div key={result.pageid} className="shadow m-6 p-2 rounded-lg">
-        <div className="content">
-          <div className="font-bold">{result.title}</div>
+      <div key={result.pageid} className="shadow m-6 p-4 rounded-lg">
+        <div className="font-bold">{result.title}</div>
+        <div className="content inline-flex">
+          <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
+
+          <div className="block">
+            <a
+              className="bg-green-500 p-4 text-white rounded-lg ml-2"
+              href={`https://en.wikipedia.org?curid=${result.pageid}`}
+            >
+              Go
+            </a>
+          </div>
         </div>
-        <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
       </div>
     );
   });
