@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { BiCaretDown } from 'react-icons/bi';
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ label, options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -42,7 +42,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     <div ref={ref} className="p-3">
       {/* <input type="text" className="form-input rounded-xl text-blue-500" /> */}
       <label className="block text-gray-700 text-sm font-bold mb-2">
-        Select a Color
+        {label}
       </label>
       <div className="shadow-lg block rounded-lg">
         <div
@@ -69,6 +69,7 @@ Dropdown.propTypes = {
   options: PropTypes.array,
   selected: PropTypes.any,
   onSelectedChange: PropTypes.any,
+  label: PropTypes.string,
 };
 
 export default Dropdown;
